@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" typeof="bibo:Document " about="" property="dcterms:language" content="en">
+<head>
+  <title>Resource Hints</title>
+  <meta charset="utf-8">
+
+
+<style>/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* --- INLINES --- */
+em.rfc2119 {
+    text-transform:     lowercase;
+    font-variant:       small-caps;
+    font-style:         normal;
+    color:              #900;
+}
+
+h1 acronym, h2 acronym, h3 acronym, h4 acronym, h5 acronym, h6 acronym, a acronym,
+h1 abbr, h2 abbr, h3 abbr, h4 abbr, h5 abbr, h6 abbr, a abbr {
+    border: none;
+}
+
+dfn {
+    font-weight:    bold;
+}
+
+a.internalDFN {
+    color:  inherit;
+    border-bottom:  1px solid #99c;
+    text-decoration:    none;
+}
+
+a.externalDFN {
+    color:  inherit;
+    border-bottom:  1px dotted #ccc;
+    text-decoration:    none;
+}
+
+a.bibref {
+    text-decoration:    none;
+}
+
+cite .bibref {
+    font-style: normal;
+}
+
+code {
+    color:  #C83500;
+}
+
+/* --- TOC --- */
+.toc a, .tof a {
+    text-decoration:    none;
+}
+
+a .secno, a .figno {
+    color:  #000;
+}
+
+ul.tof, ol.tof {
+    list-style: none outside none;
+}
+
+.caption {
+    margin-top: 0.5em;
+    font-style:   italic;
+}
+
+/* --- TABLE --- */
+table.simple {
+    border-spacing: 0;
+    border-collapse:    collapse;
+    border-bottom:  3px solid #005a9c;
+}
+
+.simple th {
+    background: #005a9c;
+    color:  #fff;
+    padding:    3px 5px;
+    text-align: left;
+}
+
+.simple th[scope="row"] {
+    background: inherit;
+    color:  inherit;
+    border-top: 1px solid #ddd;
+}
+
+.simple td {
+    padding:    3px 10px;
+    border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- DL --- */
+.section dd > p:first-child {
+    margin-top: 0;
+}
+
+.section dd > p:last-child {
+    margin-bottom: 0;
+}
+
+.section dd {
+    margin-bottom:  1em;
+}
+
+.section dl.attrs dd, .section dl.eldef dd {
+    margin-bottom:  0;
+}
+
+@media print {
+    .removeOnSave {
+        display: none;
+    }
+}
+</style><style>/* --- EXAMPLES --- */
+div.example-title {
+    min-width: 7.5em;
+    color: #b9ab2d;
+}
+div.example-title span {
+    text-transform: uppercase;
+}
+aside.example, div.example, div.illegal-example {
+    padding: 0.5em;
+    margin: 1em 0;
+    position: relative;
+    clear: both;
+}
+div.illegal-example { color: red }
+div.illegal-example p { color: black }
+aside.example, div.example {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+    border-color: #e0cb52;
+    background: #fcfaee;
+}
+
+aside.example div.example {
+    border-left-width: .1em;
+    border-color: #999;
+    background: #fff;
+}
+aside.example div.example div.example-title {
+    color: #999;
+}
+</style><style>/* --- ISSUES/NOTES --- */
+div.issue-title, div.note-title {
+    padding-right:  1em;
+    min-width: 7.5em;
+    color: #b9ab2d;
+}
+div.issue-title { color: #e05252; }
+div.note-title { color: #2b2; }
+div.issue-title span, div.note-title span {
+    text-transform: uppercase;
+}
+div.note, div.issue {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.note > p:first-child, .issue > p:first-child { margin-top: 0 }
+.issue, .note {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+}
+div.issue, div.note {
+    padding: 1em 1.2em 0.5em;
+    margin: 1em 0;
+    position: relative;
+    clear: both;
+}
+span.note, span.issue { padding: .1em .5em .15em; }
+
+.issue {
+    border-color: #e05252;
+    background: #fbe9e9;
+}
+.note {
+    border-color: #52e052;
+    background: #e9fbe9;
+}
+
+
+</style><style>/* HIGHLIGHTS */
+code.prettyprint {
+    color:  inherit;
+}
+
+/* this from google-code-prettify */
+.pln{color:#000}@media screen{.str{color:#080}.kwd{color:#008}.com{color:#800}.typ{color:#606}.lit{color:#066}.pun,.opn,.clo{color:#660}.tag{color:#008}.atn{color:#606}.atv{color:#080}.dec,.var{color:#606}.fun{color:red}}@media print,projection{.str{color:#060}.kwd{color:#006;font-weight:bold}.com{color:#600;font-style:italic}.typ{color:#404;font-weight:bold}.lit{color:#044}.pun,.opn,.clo{color:#440}.tag{color:#006;font-weight:bold}.atn{color:#404}.atv{color:#060}}ol.linenums{margin-top:0;margin-bottom:0}li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style-type:none}li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}
+</style><link href="https://www.w3.org/StyleSheets/TR/W3C-WD" rel="stylesheet"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--></head>
+
+<body id="respecDocument" role="document" class="h-entry"><div id="respecHeader" role="contentinfo" class="head">
+  <p>
+
+
+            <a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" width="72" height="48"></a>
+
+
+  </p>
+  <h1 class="title p-name" id="title" property="dcterms:title">Resource Hints</h1>
+
+  <h2 id="w3c-first-public-working-draft-29-october-2014" property="dcterms:issued" datatype="xsd:dateTime" content="2014-10-29T04:00:00.000Z"><abbr title="World Wide Web Consortium">W3C</abbr> First Public Working Draft <time class="dt-published" datetime="2014-10-29">29 October 2014</time></h2>
+  <dl>
+
+      <dt>This version:</dt>
+      <dd><a class="u-url" href="http://www.w3.org/TR/2014/WD-resource-hints-20141029/">http://www.w3.org/TR/2014/WD-resource-hints-20141029/</a></dd>
+      <dt>Latest published version:</dt>
+      <dd><a href="http://www.w3.org/TR/resource-hints/">http://www.w3.org/TR/resource-hints/</a></dd>
+
+
+      <dt>Latest editor's draft:</dt>
+      <dd><a href="http://w3c.github.io/resource-hints/">http://w3c.github.io/resource-hints/</a></dd>
+
+
+
+
+
+
+
+    <dt>Editor:</dt>
+    <dd class="p-author h-card vcard" rel="bibo:editor" inlist=""><span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Ilya Grigorik" href="https://www.igvita.com/">Ilya Grigorik</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="https://google.com/">Google</a>, <span class="ed_mailto"><a class="u-email email" rel="foaf:mbox" href="mailto:igrigorik@gmail.com">igrigorik@gmail.com</a></span></span>
+</dd>
+
+
+
+
+
+          <dt>Repository:</dt>
+
+
+
+                  <dd>
+                    <a href="https://github.com/w3c/resource-hints/">
+                      We are on Github.
+                    </a>
+                  </dd>
+
+
+
+                  <dd>
+                    <a href="https://github.com/w3c/resource-hints/issues">
+                      File a bug.
+                    </a>
+                  </dd>
+
+
+
+                  <dd>
+                    <a href="https://github.com/w3c/resource-hints/commits/gh-pages/index.html">
+                      Commit history.
+                    </a>
+                  </dd>
+
+
+
+
+
+
+  </dl>
+
+
+
+
+
+      <p class="copyright">
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©
+        2014
+
+        <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+        (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+        <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+        <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>),
+
+        All Rights Reserved.
+
+        <abbr title="World Wide Web Consortium">W3C</abbr> <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+
+          <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>
+
+        rules apply.
+      </p>
+
+
+  <hr>
+</div><section rel="bibo:Chapter" resource="#abstract" typeof="bibo:Chapter" datatype="" property="dcterms:abstract" class="introductory" id="abstract"><h2 id="h2_abstract" role="heading">Abstract</h2><p>This specification defines <a class="internalDFN" href="#dfn-preconnect">preconnect</a> and <a class="internalDFN" href="#dfn-preload">preload</a> hints that the developer, or the server generating or delivering the resources, can use in an interoperable way to assist the user agent in the decision process of which origins it should connect to, and which resources it should fetch to improve page performance.</p></section><section rel="bibo:Chapter" resource="#sotd" typeof="bibo:Chapter" id="sotd" class="introductory"><h2 id="h2_sotd" role="heading">Status of This Document</h2>
+
+
+
+        <p>
+          <em>This section describes the status of this document at the time of its publication.
+          Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the
+          latest revision of this technical report can be found in the <a href="http://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+          http://www.w3.org/TR/.</em>
+        </p>
+        <p>
+We encourage
+</p>
+        <p>
+          This document was published by the <a href="http://www.w3.org/2010/webperf/">Web Performance Working Group</a> as a First Public Working Draft.
+
+            This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
+
+
+            If you wish to make comments regarding this document, please send them to
+            <a href="mailto:public-web-perf@w3.org">public-web-perf@w3.org</a>
+            (<a href="mailto:public-web-perf-request@w3.org?subject=subscribe">subscribe</a>,
+            <a href="http://lists.w3.org/Archives/Public/public-web-perf/">archives</a>).
+
+
+
+
+            All comments are welcome.
+
+        </p>
+
+
+          <p>
+            Publication as a First Public Working Draft does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr>
+            Membership. This is a draft document and may be updated, replaced or obsoleted by other
+            documents at any time. It is inappropriate to cite this document as other than work in
+            progress.
+          </p>
+
+
+
+        <p>
+
+            This document was produced by a group operating under the
+            <a id="sotd_patent" about="" rel="w3p:patentRules" href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 <abbr title="World Wide Web Consortium">W3C</abbr> Patent
+            Policy</a>.
+
+
+
+
+              <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a href="http://www.w3.org/2004/01/pp-impl/45211/status" rel="disclosure">public list of any patent
+              disclosures</a>
+
+            made in connection with the deliverables of the group; that page also includes
+            instructions for disclosing a patent. An individual who has actual knowledge of a patent
+            which the individual believes contains
+            <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
+            Claim(s)</a> must disclose the information in accordance with
+            <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
+            6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+
+
+        </p>
+
+          <p>This document is governed by the <a id="w3c_process_revision" href="http://www.w3.org/2014/Process-20140801/">1 August 2014 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+          </p>
+
+
+
+
+
+</section><section id="toc"><h2 id="h2_toc" role="heading" class="introductory">Table of Contents</h2><ul id="respecContents" role="directory" class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">1. </span>Introduction</a></li><li class="tocline"><a class="tocxref" href="#resource-hints"><span class="secno">2. </span>Resource Hints</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#preconnect"><span class="secno">2.1 </span>Preconnect</a></li><li class="tocline"><a class="tocxref" href="#preload"><span class="secno">2.2 </span>Preload</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#fetch-settings"><span class="secno">2.2.1 </span>Fetch settings</a></li><li class="tocline"><a class="tocxref" href="#load-and-processing-policy"><span class="secno">2.2.2 </span>Load and processing policy</a></li></ul></li></ul></li><li class="tocline"><a class="tocxref" href="#processing-model"><span class="secno">3. </span>Processing model</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#required-vs-speculative-hints"><span class="secno">3.1 </span>Required vs speculative hints</a></li><li class="tocline"><a class="tocxref" href="#hint-execution"><span class="secno">3.2 </span>Hint execution</a></li><li class="tocline"><a class="tocxref" href="#dynamic-scheduling"><span class="secno">3.3 </span>Dynamic scheduling</a></li><li class="tocline"><a class="tocxref" href="#interoperability-with-http-link-header"><span class="secno">3.4 </span>Interoperability with HTTP Link header</a></li><li class="tocline"><a class="tocxref" href="#matching-hint-responses-with-requests"><span class="secno">3.5 </span>Matching hint responses with requests</a></li></ul></li><li class="tocline"><a class="tocxref" href="#use-cases"><span class="secno">4. </span>Use cases</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#dynamic-request-url-preconnect"><span class="secno">4.1 </span>Dynamic request URL (preconnect)</a></li><li class="tocline"><a class="tocxref" href="#anonymizing-redirect-preconnect"><span class="secno">4.2 </span>Anonymizing redirect (preconnect)</a></li><li class="tocline"><a class="tocxref" href="#early-fetch-of-critical-resources-preload"><span class="secno">4.3 </span>Early fetch of critical resources (preload)</a></li><li class="tocline"><a class="tocxref" href="#early-fetch-with-on-demand-processing-preload"><span class="secno">4.4 </span>Early fetch with on-demand processing (preload)</a></li><li class="tocline"><a class="tocxref" href="#developer-server-and-proxy-generated-hints-preload"><span class="secno">4.5 </span>Developer, server, and proxy-generated hints (preload)</a></li><li class="tocline"><a class="tocxref" href="#speculative-fetching-preload"><span class="secno">4.6 </span>Speculative fetching (preload)</a></li></ul></li><li class="tocline"><a class="tocxref" href="#acknowledgments"><span class="secno">A. </span>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><span class="secno">B. </span>References</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">B.1 </span>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">B.2 </span>Informative references</a></li></ul></li></ul></section><section id="introduction"><!--OddPage--><h2 id="h2_introduction" role="heading"><span class="secno">1. </span>Introduction</h2><p>Modern browsers leverage a wide variety of speculative optimization techniques to anticipate user input and intent, which allows them to hide some of the networking, processing, and rendering latencies: preconnects, early fetching of resources, and preloading and processing of resources for subsequent navigation.</p><p>The decision to initiate one or more of the above optimization is typically based on heuristic rules based on document markup and structure, navigation history, and context of the user - e.g. type of device, available compute and memory resources, network connectivity, user preferences, and so on. These techniques have proven to be successful, but can be further improved by leveraging the application and page specific knowledge of the developer or the servers responsible for generation and delivery of these resources.</p><p>For example, the application may provide the following resource hints to the user agent:</p><ul>
+<li>The list of origins from which resources will be fetched.</li>
+<li>The list of resources that will be used to construct the page.</li>
+<li>The next likely user action or navigation target, and the resources that will be required, based on current page or application state, individual user history, or aggregated session data.</li>
+</ul><p>Many web applications already leverage a variety prefetching techniques, such as using XMLHttpRequest to prefetch and cache assets before they are needed. However, these implementations are app-specific, are not interoperable with the browser-provided primitives, and do not provide the same level of performance. Worse, these implementations sometimes conflict with the browser logic and result in delayed or unnecessary resource fetches that degrade overall page performance.</p><p>This specification defines <a class="internalDFN" href="#dfn-preconnect">preconnect</a> and <a class="internalDFN" href="#dfn-preload">preload</a> hints that the developer, or the server generating or delivering the resources, can use in an interoperable way to assist the user agent in the decision process of which origins it should connect to, and which resources it should fetch to improve page performance.</p></section><section id="resource-hints"><!--OddPage--><h2 id="h2_resource-hints" role="heading"><span class="secno">2. </span>Resource Hints</h2><p>Resource hints are used to assist the user agent in the decision making process of which optimizations can be applied when the page is being loaded, or as the user is interacting with the application.</p><ul>
+  <li><a class="internalDFN" href="#dfn-preconnect">Preconnect</a> is used to indicate origins from which resources will be fetched.</li>
+  <li><a class="internalDFN" href="#dfn-preload">Preload</a> is used to indicate resources that should be fetched to improve page performance.</li>
+</ul><section id="preconnect"><h3 id="h3_preconnect" role="heading"><span class="secno">2.1 </span>Preconnect</h3><p>The <dfn id="dfn-preconnect">preconnect</dfn> hint is used to indicate an origin that will be used to fetch required resources. Initiating an early connection, which includes the DNS lookup, TCP handshake, and optional TLS negotiation, allows the user agent to mask the high costs of connection establishment latency.</p><div class="example"><div class="example-title"><span>Example 1</span></div><pre style="" class="example highlight html prettyprint prettyprinted"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preconnect"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//example.com"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preconnect"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//cdn.example.com"</span><span class="tag">&gt;</span></pre></div><p>The optimal number of connections per origin is dependent on the negotiated protocol, users current connectivity profile, available device resources, and other context specific variables. As a result, this decision is deferred to the user agent, which is in the best position to determine the optimal number.</p><p>The user agent should perform the full connection handshake (DNS+TCP for HTTP, and DNS+TCP+TLS for HTTPS origins) whenever possible, but is allowed to elect to perform a partial handshake (DNS only for HTTP, and DNS or DNS+TCP for HTTPS origins), or skip it entirely, due to resource constraints or other reasons.</p></section><section id="preload"><h3 id="h3_preload" role="heading"><span class="secno">2.2 </span>Preload</h3><p>The <dfn id="dfn-preload">preload</dfn> hint is used to indicate the URL of a resource that should be fetched by the user agent to improve page performance: initiate an early fetch to mask request latency and make it available sooner to the application, or fetch a resource that may be required by the next user action or navigation such that it can deliver an instant response once the resource is requested.</p><div class="example"><div class="example-title"><span>Example 2</span></div><pre style="" class="example highlight html prettyprint prettyprinted"><span class="com">&lt;!-- fetch immediately + preprocess if possible --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"/assets/logo-small.jpeg"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"image"</span><span class="pln"> </span><span class="atn">media</span><span class="pun">=</span><span class="atv">"screen and (max-width: 640px)"</span><span class="tag">&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- fetch immediately + do not preprocess --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"/components/widget.html"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"html"</span><span class="pln"> </span><span class="atn">loadpolicy</span><span class="pun">=</span><span class="atv">"inert"</span><span class="tag">&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- low-priority fetch + preprocess if possible --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//example.com/next-page.html"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"html"</span><span class="pln"> </span><span class="atn">loadpolicy</span><span class="pun">=</span><span class="atv">"next"</span><span class="tag">&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- low-priority fetch + do not preprocess --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//example.com/next-component.html"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"html"</span><span class="pln"> </span><span class="atn">loadpolicy</span><span class="pun">=</span><span class="atv">"next inert"</span><span class="tag">&gt;</span></pre></div><div class="note"><div id="h_note_1" role="heading" aria-level="2" class="note-title"><span>Note</span></div><div class="">
+    The <code>next inert</code> <a class="internalDFN" href="#dfn-loadpolicy">loadpolicy</a> is semantically equivalent to <code>rel=prefetch</code> implemented by some browsers; <code>next</code> <a class="internalDFN" href="#dfn-loadpolicy">loadpolicy</a> is semantically equivalent to <code>rel=prerender</code> implemented by some browsers. The <a class="internalDFN" href="#dfn-preload">preload</a> hint standardizes and extends previous prefetch and prerender hints with more flexible fetch and processing policies.
+  </div></div><section id="fetch-settings"><h4 id="h4_fetch-settings" role="heading"><span class="secno">2.2.1 </span>Fetch settings</h4><p>Specifying the <dfn id="dfn-as">as</dfn> attribute allows the developer to communicate the resource destination context, such that the user agent can initialize the appropriate fetch settings: relative request priority, appropriate HTTP headers, and so on.</p><div class="example"><div class="example-title"><span>Example 3</span></div><pre style="" class="example highlight html prettyprint prettyprinted"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"/assets/font.woff"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"font"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"/assets/logo.webp"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"image"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//example.com/widget"</span><span class="tag">&gt;</span></pre></div><ul>
+      <li>The specified <a class="internalDFN" href="#dfn-as">as</a> value must be a valid <a href="http://fetch.spec.whatwg.org/#concept-request-context">request context</a> as defined in [<cite><a href="#bib-FETCH" class="bibref">FETCH</a></cite>].</li>
+      <li>If the <a class="internalDFN" href="#dfn-as">as</a> attribute is missing, the user agent should assign a default context.</li>
+      <li>Request defaults set by the user agent via <a class="internalDFN" href="#dfn-as">as</a> attribute must match the default settings set by the user agent when processing a resource with the same context - this is necessary to guarantee correct prioritization and request matching (see <a class="sec-ref" href="#matching-hint-responses-with-requests"><span class="secno">3.5</span> <span class="sec-title">Matching hint responses with requests</span></a>).</li>
+    </ul><div class="note"><div id="h_note_2" role="heading" aria-level="3" class="note-title"><span>Note</span></div><div class="">
+      The resource destination context communicated via the <a class="internalDFN" href="#dfn-as">as</a> attribute is only used to initialize appropriate fetch settings; the communicated context is not meant to enforce security or other resource policies.
+    </div></div></section><section id="load-and-processing-policy"><h4 id="h4_load-and-processing-policy" role="heading"><span class="secno">2.2.2 </span>Load and processing policy</h4><p>The <dfn id="dfn-loadpolicy">loadpolicy</dfn> attribute consists of a space-separated set of the following keywords that determine the load and processing policy of the specified resource:</p><ul>
+      <li><dfn id="dfn-next">next</dfn>: indicates that the specified resource may be required by the next navigation context, and that the user agent should fetch the resource if possible.</li>
+
+      <li><dfn id="dfn-inert">inert</dfn>: indicates that the user agent should not apply any preprocessing on the response - e.g. decode an image ahead of time, preparse HTML markup, parse the HTML markup and fetch and apply resources (i.e. render the next page), and so on.</li>
+    </ul><div class="example"><div class="example-title"><span>Example 4</span></div><pre style="" class="example highlight html prettyprint prettyprinted"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"/assets/font.woff"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"font"</span><span class="pln"> </span><span class="atn">loadpolicy</span><span class="pun">=</span><span class="atv">"next"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"/assets/logo.webp"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"image"</span><span class="pln"> </span><span class="atn">loadpolicy</span><span class="pun">=</span><span class="atv">"next inert"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//example.com/widget"</span><span class="tag">&gt;</span></pre></div><div class="note"><div id="h_note_3" role="heading" aria-level="3" class="note-title"><span>Note</span></div><div class="">An empty <a class="internalDFN" href="#dfn-loadpolicy">loadpolicy</a> indicates that the resource is required for the current navigation context, and that the user agent may apply relevant preprocessing to optimize page performance.</div></div><p>Preload initiated resource fetches should not negatively impact the performance of the current navigation context. Due to the need to fetch and optionally preprocess the specified resource and its associated assets, preloading may result in high contention for the CPU, GPU, memory, and network resources. To address this, the user agent must take into account the specified <a class="internalDFN" href="#dfn-loadpolicy">loadpolicy</a>:</p><ul>
+      <li>Resource fetches with <a class="internalDFN" href="#dfn-next">next</a> loadpolicy must have lower relative priority and should not block or interfere with resource fetches required by the current navigation context.</li>
+
+      <li>The optimal time to initiate a preload resource fetch is dependent on the specified <a class="internalDFN" href="#dfn-loadpolicy">loadpolicy</a>, negotiated transport protocol, users current connectivity profile, available device resources, and other context specific variables.
+      <ul>
+        <li>If <a class="internalDFN" href="#dfn-next">next</a> keyword is omitted, the user agent must initiate the fetch as soon as possible.</li>
+        <li>If <a class="internalDFN" href="#dfn-next">next</a> keyword is present, the user agent should determine the optimal time and initiate the fetch - e.g. the user agent may decide to wait until all other downloads are finished, or choose to pipeline requests with low priority if the negotiated protocol supports the necessary primitives. Alternatively, the user agent may opt-out from initiating the fetch due to resource constraints, user preferences, or other factors.</li>
+      </ul>
+      </li>
+      <li>By default, the user agent may perform appropriate preprocessing on the preloaded resource depending on the type and destination context of the response. Preprocessing prepares the resource to be applied, but it does not automatically execute or apply it against the current page context.
+      <ul>
+        <li>The decision for which preprocessing steps are performed is deferred to the user agent.</li>
+        <li>The user agent must not apply any preprocessing when the <a class="internalDFN" href="#dfn-inert">inert</a> keyword is present - e.g. the developer may want to opt-out from preprocessing the next HTML document and its subresources.</li>
+      </ul>
+      </li>
+    </ul><p>The user agent should perform preprocessing of applicable resources, and may implement various strategies to minimize resource contention based on the type and context of fetched response, impose limits on the properties of the resource that is being preloaded, and so on:</p><ul>
+      <li>Preprocessing may be allocated fewer CPU, GPU, or memory resources.</li>
+
+      <li>When preprocessing an HTML document, some resource requests may be delayed until the preloaded resource is made visible - e.g. media downloads, plugin content, and so on.</li>
+
+      <li>Preprocessing may be abandoned due to resource constraints.
+      <ul>
+        <li>Limited available resources may prevent preprocessing from being initiated.</li>
+        <li>High resource requirements of the preloaded content may lead the user agent to cancel preprocessing - e.g. exceeded memory requirements, high CPU usage, and so on.</li>
+      </ul>
+      </li>
+      <li>Preprocessing may be abandoned based on the type or properties of the preloaded content. For example, when preprocessing an HTML response:
+      <ul>
+        <li>If the target exhibits non-idempotent behavior: mutations to shared local storage, XMLHttpRequest with a verb other than GET, HEAD, or OPTION, and so on.</li>
+        <li>If the target triggers a condition that requires user input: confirmation dialogs, authentication prompts, alerts, and so on.</li>
+      </ul></li>
+    </ul><p>The above processing strategies are not an exhaustive list. The decision which strategies to implement for each content-type and how to enforce them is deferred to the user agent.</p><div class="note"><div id="h_note_4" role="heading" aria-level="3" class="note-title"><span>Note</span></div><div class="">
+      To ensure compatibility and improve the success rate of speculative preload requests the target page should use the [<cite><a href="#bib-PAGE-VISIBILITY" class="bibref">PAGE-VISIBILITY</a></cite>] to determine the visibility state of the page as it is being rendered and implement appropriate logic to avoid actions that may cause the preload to be abandoned (e.g. non-idempotent requests), or unwanted side-effects from being triggered (e.g. analytics beacons firing prior to the page being displayed).
+    </div></div><div class="note"><div id="h_note_5" role="heading" aria-level="3" class="note-title"><span>Note</span></div><div class="">
+      TODO: Resource hints are subject to <a href="http://www.w3.org/TR/html5/document-metadata.html#attr-link-media">media query processing</a>: the user agent must initiate resource fetch when media attribute's value matches the environment, and must not initiate the fetch otherwise.
+    </div></div></section><p>  </p></section><p></p></section><section id="processing-model"><!--OddPage--><h2 id="h2_processing-model" role="heading"><span class="secno">3. </span>Processing model</h2><section id="required-vs-speculative-hints"><h3 id="h3_required-vs-speculative-hints" role="heading"><span class="secno">3.1 </span>Required vs speculative hints</h3><p>In addition to specifying the hint type, its fetch parameters, and the resource URL, the developer can communicate the expected probability that the resource will be used in the current or next navigation context.</p><div class="example"><div class="example-title"><span>Example 5</span></div><pre style="" class="highlight example html prettyprint prettyprinted"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preconnect"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//sub.example.com"</span><span class="pln"> </span><span class="atn">pr</span><span class="pun">=</span><span class="atv">"0.22"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//example.com/application.js"</span><span class="pln"> </span><span class="atn">pr</span><span class="pun">=</span><span class="atv">"0.75"</span><span class="tag">&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"//example.com/thankyou.html"</span><span class="tag">&gt;</span></pre></div><p>The <dfn id="dfn-pr">pr</dfn> attribute is a float value in the [0.0-1.0] range:</p><ul>
+    <li><strong>Required hint:</strong> a hint with probability of 1.0 that must be processed by the user agent.</li>
+    <li><strong>Speculative hint:</strong> a hint with probability of &lt;1.0 or <a class="internalDFN" href="#dfn-loadpolicy">loadpolicy</a> containing <a class="internalDFN" href="#dfn-next">next</a> keyword. Speculative hints should be processed by the user agent when possible.</li>
+  </ul><p>If the <a class="internalDFN" href="#dfn-pr">pr</a> attribute is omitted, the hint is considered to be a required hint (i.e. it has a probability of 1.0), unless the <a class="internalDFN" href="#dfn-loadpolicy">loadpolicy</a> contains the <a class="internalDFN" href="#dfn-next">next</a> keyword. Speculative hints are processed on a best effort basis by the user agent based on the runtime context of the user agent — availability of CPU, GPU, memory, and networking resources — developer specified probability indicating the likelihood of that resource being used, and specified user preferences.</p><ul>
+    <li>The user agent may decide to execute some, none, or all of the optimizations implied by a speculative resource hint, and may also invoke additional optimizations based on its own heuristics.</li>
+
+    <li>The user agent may decide to execute a partial optimization relative to the speculative hint due to resource constraints or other reasons.
+    <ul>
+      <li><a class="internalDFN" href="#dfn-preconnect">preconnect</a> may fallback to a partial handshake (DNS only, or DNS+TCP for HTTPS origins).</li>
+      <li><a class="internalDFN" href="#dfn-preload">preload</a> may fallback to <a class="internalDFN" href="#dfn-preconnect">preconnect</a> for specified origin, or apply a custom preprocessing strategy for the target resource, and if applicable, its subresources: <a class="internalDFN" href="#dfn-preconnect">preconnect</a> only; fetch the target resource but defer fetch of subresources; fetch subresources but delay their processing, and so on.</li>
+    </ul></li>
+    <li>The user agent may decide to not cancel outstanding fetches initiated via a required or speculative hint when a new navigation is invoked - e.g. if the navigation is to the same origin, the resource may be required by the next page. However, the user agent may cancel these requests once it determines that they are not required by the new destination.</li>
+  </ul><div class="note"><div id="h_note_6" role="heading" aria-level="2" class="note-title"><span>Note</span></div><div class="">
+    <p>To optimize the overall user experience the user agent should account for local context and specified probability of a speculative hint. For example, on a resource constrained device the user agent may decide to only execute high probability hints. Alternatively, it may decide to perform partial processing of the hint, such as downgrading <a class="internalDFN" href="#dfn-preload">preload</a> to <a class="internalDFN" href="#dfn-preconnect">preconnect</a>, performing partial preprocessing, and so on.</p>
+
+    <p>Performing a partial optimization allows the user agent to improve performance even if a full optimization cannot be performed. Conversely, on a device with sufficient resources, the user agent may execute all of the specified hints as far as possible.</p>
+  </div></div></section><section id="hint-execution"><h3 id="h3_hint-execution" role="heading"><span class="secno">3.2 </span>Hint execution</h3><p>The user agent must not delay the <code>load</code> event of the document unless the hint-initiated fetch is matched with a matching request that blocks the <code>load</code> event of the document.</p><p>Once the attempt to obtain the hint-initiated resource is complete, the user agent must, if the fetch was successful, queue a task to fire a simple event named <code>load</code> at the link element, or, if the fetch failed to complete for any reason, queue a task to fire a simple event named <code>error</code> at the link element.</p><ul>
+    <li>If the user agent is executing a required hint, then the <code>load</code> event on the link element is an indicator that the hint was processed to completion.</li>
+    <li>If the user agent is executing a speculative hint, then the <code>load</code> event on the link element is an indicator that the user agent has performed full or partial processing on the hint (see <a class="sec-ref" href="#required-vs-speculative-hints"><span class="secno">3.1</span> <span class="sec-title">Required vs speculative hints</span></a>).</li>
+  </ul><div class="example"><div class="example-title"><span>Example 6</span></div><pre style="" class="example highlight html prettyprint prettyprinted"><span class="tag">&lt;script&gt;</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> hintLoaded</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> hintError</span><span class="pun">()</span><span class="pln">  </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> hint </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"link"</span><span class="pun">);</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="str">"rel"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"preload"</span><span class="pun">);</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="str">"as"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"image"</span><span class="pun">);</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="str">"href"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"/image.jpg"</span><span class="pun">);</span><span class="pln">
+document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">"head"</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">hint</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// listen for load/error events</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"load"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> hintLoaded</span><span class="pun">()</span><span class="pln"> </span><span class="pun">})</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"error"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> hintError</span><span class="pun">()</span><span class="pln"> </span><span class="pun">})</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- listen for load/error events --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"preload"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"app.js"</span><span class="pln"> </span><span class="atn">as</span><span class="pun">=</span><span class="atv">"script"</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">hintLoaded</span><span class="pun">()</span><span class="atv">"</span><span class="pln"> </span><span class="atn">onerror</span><span class="pun">=</span><span class="atv">"</span><span class="pln">hintError</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></pre></div><div class="note"><div id="h_note_7" role="heading" aria-level="2" class="note-title"><span>Note</span></div><div class="">
+    The decision on whether a speculative hint is executed, and if so, whether full or partial processing is applied is deferred to the user agent. As a result, the <code>load</code> and <code>error</code> events are not guaranteed to fire for a speculative hint, and when they do, do not guarantee that full processing was applied.
+  </div></div><div class="example">
+    The application may use the <code>load</code> event on a <a class="internalDFN" href="#dfn-preload">preload</a> hint as an indicator that the resource has been successfully fetched and is now ready to be processed by the application - e.g. the image is ready to be decoded, a stylesheet or script may be applied, and so on, without blocking on the network.
+  </div></section><section id="dynamic-scheduling"><h3 id="h3_dynamic-scheduling" role="heading"><span class="secno">3.3 </span>Dynamic scheduling</h3><p>In addition to the hints specified in the document markup, the application may have runtime resource hints based on user context or other signals. The user agent should process dynamically inserted resource hints in addition to and in the same way as document specified hints.</p><div class="example"><div class="example-title"><span>Example 7</span></div><pre style="" class="example highlight js prettyprint prettyprinted"><span class="com">// insert new preload hint</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> hint </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"link"</span><span class="pun">);</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="str">"rel"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"preload"</span><span class="pun">);</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="str">"loadpolicy"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"next"</span><span class="pun">);</span><span class="pln">
+hint</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="str">"href"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"/article/part3.html"</span><span class="pun">);</span><span class="pln">
+document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">"head"</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">hint</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// cancel preload</span><span class="pln">
+document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">"head"</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">removeChild</span><span class="pun">(</span><span class="pln">hint</span><span class="pun">);</span></pre></div><p>The removal of the hint from the document must cancel the optimization if it is being processed and prevent it from executing if it has not yet been invoked.</p><div class="example">
+    The application may use dynamic scheduling to react and adapt to user initiated actions - e.g. initiate a speculative resource fetch in response to recent user activity, cancel previous speculative fetch, and so on.
+  </div></section><section id="interoperability-with-http-link-header"><h3 id="h3_interoperability-with-http-link-header" role="heading"><span class="secno">3.4 </span>Interoperability with HTTP Link header</h3><p>The user agent should process resource hints specified via the Link HTTP header [<cite><a href="#bib-RFC5988" class="bibref">RFC5988</a></cite>].</p><div class="example"><div class="example-title"><span>Example 8</span></div><pre class="example">Link: &lt;https://example.com&gt;; rel=preconnect
+Link: &lt;https://example.com/font.woff&gt;; rel=preload; as=font
+Link: &lt;https://example.com/article/part2.html&gt;; rel=preload
+Link: &lt;https://example.com/logo-hires.jpg&gt;; rel=preload; as=image; media=min-resolution:2dppx</pre></div><p>The application may provide one or more of the same type of hint via multiple HTTP headers or via a comma separated list. The user agent should process such hints in addition to and in the same way as document specified and dynamically scheduled resource hints.</p><div class="example">
+    <p>Delivering resource hints via <code>Link</code> header allows automated optimization services running on origin or upstream servers (e.g. CDN) to leverage and emit resource hints without modifying the delivered response.</p>
+
+    <ul>
+      <li>The optimization service may leverage specified hints to preconnect, preload, or prefetch resources into its own cache, which will assist in faster delivery when the request arrives from the client.</li>
+      <li>The optimization service may emit resource hints based own optimization heuristics (e.g. inferred page structure, request patterns, and so on) to assist the user agent.</li>
+    </ul>
+  </div></section><section id="matching-hint-responses-with-requests"><h3 id="h3_matching-hint-responses-with-requests" role="heading"><span class="secno">3.5 </span>Matching hint responses with requests</h3><p>Resources fetched via <a class="internalDFN" href="#dfn-preload">preload</a> are retained by the user agent until they are fetched with a matching request. The user agent may decide to discard the retained response due to resource constraints, a timeout (recommended, at least 300 seconds), or other reasons.</p><div class="example">
+    A JavaScript resource is fetched via <a class="internalDFN" href="#dfn-preload">preload</a> and the response contains a <code>no-cache</code> directive. The fetched response is retained by the user agent and is immediately returned when fetched with a matching request at a later time - e.g. via a <code>script</code> tag or other means. This ensures that the user agent does not incur an unnecessary revalidation, or a duplicate download, between the initial resource fetch initiated via the specified resource hint and a later fetch requesting the same resource.
+  </div><div class="note"><div id="h_note_8" role="heading" aria-level="2" class="note-title"><span>Note</span></div><div class="">
+    The concept of "matching" is not currently defined or interoperable across user agents. This should be fixed, but it is out of scope of this specification. For further discussion see <a href="https://github.com/igrigorik/resource-hints/issues/5">this bug</a> and <a href="https://groups.google.com/a/chromium.org/forum/#!msg/net-dev/cFhaIoJCRFg/3JX9lPWnDPIJ">chromium discussion</a>.
+  </div></div></section></section><section id="use-cases"><!--OddPage--><h2 id="h2_use-cases" role="heading"><span class="secno">4. </span>Use cases</h2><section id="dynamic-request-url-preconnect"><h3 id="h3_dynamic-request-url-preconnect" role="heading"><span class="secno">4.1 </span>Dynamic request URL (preconnect)</h3><p>The full resource URL may not be known until the page is being constructed by the user agent - e.g. conditional loading logic, UA adaptation, etc. However, the origin from which one or more of these resources will be fetched is often known ahead of time by the developer or the server generating the response. In such cases, a <a class="internalDFN" href="#dfn-preconnect" title="preconnect">preconnect hint</a> can be used to initiate an early connection handshake such that when the resource URL is determined, the user agent can dispatch the request without first blocking on connection negotiation.</p></section><section id="anonymizing-redirect-preconnect"><h3 id="h3_anonymizing-redirect-preconnect" role="heading"><span class="secno">4.2 </span>Anonymizing redirect (preconnect)</h3><p>Many sites rely on redirects for analytics and to anonymize the referrer before sending the user to the final destination. Because the destination is known ahead of time, a <a class="internalDFN" href="#dfn-preconnect" title="preconnect">preconnect hint</a> can be used to initiate the connection handshake with the destination origin in parallel with the processing of the redirect. Note that this behavior requires ability to dynamically inject the hint (e.g. as part of a JavaScript handler), and for the preconnect processing to proceed across page navigations.</p></section><section id="early-fetch-of-critical-resources-preload"><h3 id="h3_early-fetch-of-critical-resources-preload" role="heading"><span class="secno">4.3 </span>Early fetch of critical resources (preload)</h3><p>Speculative parsers do not execute JavaScript and perform a shallow parse of CSS, which means that the fetch of resources specified within JavaScript and CSS is delayed until the document parser is able to process the resource declaration. By using a <a class="internalDFN" href="#dfn-preload" title="preload">preload hint</a> the application can declaratively specify which resources the user agent should fetch early to mask the request latency and improve page performance.</p></section><section id="early-fetch-with-on-demand-processing-preload"><h3 id="h3_early-fetch-with-on-demand-processing-preload" role="heading"><span class="secno">4.4 </span>Early fetch with on-demand processing (preload)</h3><p>The <a class="internalDFN" href="#dfn-preload" title="preload">preload hint</a> can be used by the application to initiate early fetch, but delay processing of the received response - e.g. fetch a CSS stylesheet and apply it at some later time, fetch a JavaScript asset and execute it later, and so on. Preload fetches do not block the document <code>load</code> event and allow the application to determine which resources are applied, when they are executed, and in which order.</p></section><section id="developer-server-and-proxy-generated-hints-preload"><h3 id="h3_developer-server-and-proxy-generated-hints-preload" role="heading"><span class="secno">4.5 </span>Developer, server, and proxy-generated hints (preload)</h3><p>The <a class="internalDFN" href="#dfn-preload" title="preload">preload hint</a> can be generated both by the application and an optimization proxy (e.g. a CDN) to accelerate fetch and delivery of required resources.
+
+  </p><ol>
+    <li>The application can specify preload hints, allowing:
+    <ul>
+      <li>The optimization proxy to initiate early fetch of the associated resources and place them into its cache, thus reducing or eliminating the latency of retrieving resources from the origin.</li>
+      <li>The user agent to initiate early fetch of required resources - see example above.</li>
+    </ul></li>
+
+    <li>The optimization proxy can specify preload hints on behalf of the application:
+    <ul>
+      <li>The proxy can observe and infer required resources based on past request patterns, allowing it to automate generation of relevant preload hints to improve performance.</li>
+      <li>The proxy can deliver inferred preload hints to the user agent while it is blocked on the response from the origin, allowing the user agent to begin fetching required resources.</li>
+    </ul></li>
+  </ol><p>Many optimization proxies already implement the "early flush" strategy where references to required resources are delivered to the user agent while the proxy is blocked on the response from the origin. Today, this is typically done by synthesizing a document header that contains XHR, image, and object requests. However, in practice, these implementations often result in prioritization conflicts with requests initiated by speculative and document parsers, or worse, result in delayed or double downloads due to missing context information. The <a class="internalDFN" href="#dfn-preload" title="preload">preload hint</a> addresses these problems by providing a declarative hint that communicates both the URL and the context of the resource.</p><p></p></section><section id="speculative-fetching-preload"><h3 id="h3_speculative-fetching-preload" role="heading"><span class="secno">4.6 </span>Speculative fetching (preload)</h3><p>The <a class="internalDFN" href="#dfn-preload" title="preload">preload hint</a> can be used to implement a prefetch strategy that leverages app-specific knowledge about the next navigation based on content, structure, analytics, or other signals - e.g. high-likelihood search results, paginated content or step-driven flows, aggregated analytics or per-user behavior, and so on.</p><p>For example, an image gallery may have knowledge about the likelihood of the next photo or page that may be requested by the user. To provide an improved experience the application can ask the user agent to begin fetching required resources (individual photos, critical resources, or the full page) before the next navigation is triggered.</p><p>Alternatively, instead of anticipating user activity, the application can react to user input and dynamically schedule preload requests based on its knowledge of resources that will be required by the next navigation target - i.e. the application may capture a click event and provide preload hints to the user agent before the current page is unloaded.</p></section></section><section id="acknowledgments" class="appendix"><!--OddPage--><h2 id="h2_acknowledgments" role="heading"><span class="secno">A. </span>Acknowledgments</h2><p></p><p></p><p>This document reuses text from the [<cite><a href="#bib-HTML" class="bibref">HTML</a></cite>] specification, edited by Ian Hickson, as permitted by the license of that specification.</p></section><section rel="bibo:Chapter" resource="#references" typeof="bibo:Chapter" id="references" class="appendix"><!--OddPage--><h2 id="h2_references" role="heading"><span class="secno">B. </span>References</h2><section rel="bibo:Chapter" resource="#normative-references" typeof="bibo:Chapter" id="normative-references"><h3 id="h3_normative-references" role="heading"><span class="secno">B.1 </span>Normative references</h3><dl about="" class="bibliography"><dt id="bib-RFC5988">[RFC5988]</dt><dd rel="dcterms:requires">M. Nottingham. <a href="http://www.ietf.org/rfc/rfc5988.txt"><cite>Web Linking</cite></a>. October 2010. Proposed Standard. URL: <a href="http://www.ietf.org/rfc/rfc5988.txt">http://www.ietf.org/rfc/rfc5988.txt</a>
+</dd></dl></section><section rel="bibo:Chapter" resource="#informative-references" typeof="bibo:Chapter" id="informative-references"><h3 id="h3_informative-references" role="heading"><span class="secno">B.2 </span>Informative references</h3><dl about="" class="bibliography"><dt id="bib-FETCH">[FETCH]</dt><dd rel="dcterms:references">Anne van Kesteren. <a href="https://fetch.spec.whatwg.org/"><cite>Fetch Standard</cite></a>. Living Standard. URL: <a href="https://fetch.spec.whatwg.org/">https://fetch.spec.whatwg.org/</a>
+</dd><dt id="bib-HTML">[HTML]</dt><dd rel="dcterms:references">Ian Hickson. <a href="https://html.spec.whatwg.org/"><cite>HTML</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/">https://html.spec.whatwg.org/</a>
+</dd><dt id="bib-PAGE-VISIBILITY">[PAGE-VISIBILITY]</dt><dd rel="dcterms:references">Jatinder Mann; Arvind Jain. <a href="http://www.w3.org/TR/page-visibility/"><cite>Page Visibility (Second Edition)</cite></a>. 29 October 2013. W3C Recommendation. URL: <a href="http://www.w3.org/TR/page-visibility/">http://www.w3.org/TR/page-visibility/</a>
+</dd></dl></section></section></body></html>
